@@ -10,6 +10,9 @@ other = "What does unplanned downtime cost your business per year?"
 [calcIntro]
 other = "Fill in your numbers and see the result instantly. No registration required."
 
+[calcCurrency]
+other = "Currency"
+
 [calcSectionInput]
 other = "Your data"
 

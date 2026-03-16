@@ -10,6 +10,9 @@ other = "Wat kost ongeplande stilstand uw bedrijf per jaar?"
 [calcIntro]
 other = "Vul uw cijfers in en zie direct het resultaat. Geen registratie nodig."
 
+[calcCurrency]
+other = "Valuta"
+
 [calcSectionInput]
 other = "Uw gegevens"
 
