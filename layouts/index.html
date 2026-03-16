@@ -105,11 +105,48 @@
       box-shadow: 0 4px 12px rgba(252, 211, 77, 0.4);
     }
 
-    .header-flag {
+    .lang-switch { position: relative; }
+    .lang-switch-btn {
+      font-size: 1.25rem;
+      line-height: 1;
+      cursor: pointer;
+      background: none;
+      border: 1px solid rgba(30,58,138,0.15);
+      border-radius: 6px;
+      padding: 0.25rem 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+    .lang-switch-btn::after {
+      content: "▾";
+      font-size: 0.625rem;
+      color: var(--navy);
+    }
+    .lang-switch-list {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: 100%;
+      margin-top: 0.375rem;
+      background: #fff;
+      border: 1px solid rgba(30,58,138,0.1);
+      border-radius: 6px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      min-width: 2.75rem;
+      z-index: 200;
+      overflow: hidden;
+    }
+    .lang-switch.open .lang-switch-list { display: block; }
+    .lang-switch-list a {
+      display: block;
+      padding: 0.375rem 0.625rem;
       font-size: 1.25rem;
       text-decoration: none;
       line-height: 1;
+      text-align: center;
     }
+    .lang-switch-list a:hover { background: var(--light-bg); }
 
     /* ── Hero ── */
     .hero {
@@ -545,9 +582,14 @@
         {{ i18n "bookCall" }}
       </a>
       {{- $flags := dict "en" "🇬🇧" "nl" "🇳🇱" "hu" "🇭🇺" -}}
-      {{- range .Translations }}
-      <a href="{{ .Permalink }}" title="{{ .Language.LanguageName }}" class="header-flag">{{ index $flags .Lang }}</a>
-      {{- end }}
+      <div class="lang-switch" onclick="this.classList.toggle('open')">
+        <button class="lang-switch-btn" type="button" aria-label="Language">{{ index $flags .Lang }}</button>
+        <div class="lang-switch-list">
+          {{- range .Translations }}
+          <a href="{{ .Permalink }}" title="{{ .Language.LanguageName }}">{{ index $flags .Lang }}</a>
+          {{- end }}
+        </div>
+      </div>
     </div>
   </header>
 
@@ -772,5 +814,12 @@
     </div>
   </footer>
 
+  <script>
+  document.addEventListener('click', function(e) {
+    document.querySelectorAll('.lang-switch.open').forEach(function(el) {
+      if (!el.contains(e.target)) el.classList.remove('open');
+    });
+  });
+  </script>
 </body>
 </html>
