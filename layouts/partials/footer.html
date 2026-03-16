@@ -1,5 +1,28 @@
+<style>
+  .footer-grid {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+  .footer-col-legal {
+    text-align: right;
+  }
+  @media (max-width: 640px) {
+    .footer-grid {
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .footer-col-legal {
+      text-align: left;
+    }
+  }
+</style>
 <footer style="background: #0F1D45; color: rgba(255,255,255,0.7); padding: 3rem 2rem; font-size: 0.875rem;">
-  <div style="max-width: 1000px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 2rem;">
+  <div class="footer-grid">
     <div style="display: flex; flex-direction: column; gap: 0.5rem;">
       <img src="/assets/logo-white-horizontal.svg" alt="Imperial Automation" style="height: 28px; width: auto; margin-bottom: 0.5rem;">
       <span>{{ i18n "footerTagline" }}</span>
@@ -13,7 +36,7 @@
       <strong style="color: rgba(255,255,255,0.9); font-size: 0.875rem;">{{ i18n "footerTools" }}</strong>
       <a href="{{ "tools/downtime-calculator/" | relLangURL }}" style="color: rgba(255,255,255,0.7); text-decoration: none;">{{ i18n "footerDowntimeCalc" }}</a>
     </div>
-    <div style="text-align: right;">
+    <div class="footer-col-legal">
       <p style="margin-bottom: 0.25rem;">KvK: 99596032</p>
       <p style="margin-bottom: 0.25rem;">BTW: NL005401527B14</p>
     </div>

@@ -76,6 +76,18 @@
       width: auto;
     }
 
+    .header-logo-icon {
+      display: none;
+      height: 32px;
+      width: auto;
+    }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
     .header-cta {
       display: inline-block;
       background: var(--gold);
@@ -91,6 +103,12 @@
     .header-cta:hover {
       transform: translateY(-1px);
       box-shadow: 0 4px 12px rgba(252, 211, 77, 0.4);
+    }
+
+    .header-flag {
+      font-size: 1.25rem;
+      text-decoration: none;
+      line-height: 1;
     }
 
     /* ── Hero ── */
@@ -462,6 +480,14 @@
         padding: 0.75rem 1rem;
       }
 
+      .header-logo {
+        display: none;
+      }
+
+      .header-logo-icon {
+        display: block;
+      }
+
       .header-cta {
         font-size: 0.8rem;
         padding: 0.4rem 1rem;
@@ -512,21 +538,16 @@
   <header>
     <a href="{{ "/" | relLangURL }}">
       <img src="/assets/logo-horizontal.svg" alt="Imperial Automation" class="header-logo">
+      <img src="/assets/logo-icon.svg" alt="Imperial Automation" class="header-logo-icon">
     </a>
-    <div style="display: flex; align-items: center; gap: 1rem;">
-      {{- range .Translations }}
-      <a href="{{ .Permalink }}" style="font-size: 0.8rem; color: #1E3A8A; text-decoration: none; font-weight: 500;">{{ .Language.LanguageName }}</a>
-      {{- end }}
-      {{- if not .Translations }}
-        {{- if eq .Lang "en" }}
-      <a href="/nl/" style="font-size: 0.8rem; color: #1E3A8A; text-decoration: none; font-weight: 500;">Nederlands</a>
-        {{- else }}
-      <a href="/en/" style="font-size: 0.8rem; color: #1E3A8A; text-decoration: none; font-weight: 500;">English</a>
-        {{- end }}
-      {{- end }}
+    <div class="header-nav">
       <a href="https://calendly.com/imperial-automation/introduction-call" class="header-cta">
         {{ i18n "bookCall" }}
       </a>
+      {{- $flags := dict "en" "🇬🇧" "nl" "🇳🇱" "hu" "🇭🇺" -}}
+      {{- range .Translations }}
+      <a href="{{ .Permalink }}" title="{{ .Language.LanguageName }}" class="header-flag">{{ index $flags .Lang }}</a>
+      {{- end }}
     </div>
   </header>
 
