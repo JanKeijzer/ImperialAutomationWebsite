@@ -1,1 +1,4 @@
 advies-website-strategie.md
+public/
+resources/
+.hugo_build.lock

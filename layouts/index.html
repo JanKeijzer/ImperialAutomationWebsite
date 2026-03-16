@@ -1,23 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ .Lang }}">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Imperial Automation — Turn friction into flow</title>
-  <meta name="description" content="Imperial Automation helps businesses identify bottlenecks and implement AI-driven automation. Book a free strategy call today.">
+  <title>{{ .Title }}</title>
+  <meta name="description" content="{{ i18n "heroDescription" }}">
   <meta name="author" content="Jan Keijzer">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Imperial Automation — Turn friction into flow">
-  <meta property="og:description" content="AI automation consultancy. We help businesses identify bottlenecks and implement smart automation solutions.">
+  <meta property="og:title" content="{{ .Title }}">
+  <meta property="og:description" content="{{ i18n "heroDescription" }}">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://imperial-automation.eu">
-  <meta property="og:image" content="https://imperial-automation.eu/assets/logo-horizontal.svg">
+  <meta property="og:url" content="{{ .Permalink }}">
+  <meta property="og:image" content="{{ "assets/logo-horizontal.svg" | absURL }}">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
-  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -510,12 +510,24 @@
 
   <!-- ── Header ── -->
   <header>
-    <a href="/">
-      <img src="assets/logo-horizontal.svg" alt="Imperial Automation" class="header-logo">
+    <a href="{{ "/" | relLangURL }}">
+      <img src="/assets/logo-horizontal.svg" alt="Imperial Automation" class="header-logo">
     </a>
-    <a href="https://calendly.com/imperial-automation/introduction-call" class="header-cta">
-      Book a Call
-    </a>
+    <div style="display: flex; align-items: center; gap: 1rem;">
+      {{- range .Translations }}
+      <a href="{{ .Permalink }}" style="font-size: 0.8rem; color: #1E3A8A; text-decoration: none; font-weight: 500;">{{ .Language.LanguageName }}</a>
+      {{- end }}
+      {{- if not .Translations }}
+        {{- if eq .Lang "en" }}
+      <a href="/nl/" style="font-size: 0.8rem; color: #1E3A8A; text-decoration: none; font-weight: 500;">Nederlands</a>
+        {{- else }}
+      <a href="/en/" style="font-size: 0.8rem; color: #1E3A8A; text-decoration: none; font-weight: 500;">English</a>
+        {{- end }}
+      {{- end }}
+      <a href="https://calendly.com/imperial-automation/introduction-call" class="header-cta">
+        {{ i18n "bookCall" }}
+      </a>
+    </div>
   </header>
 
   <!-- ── Hero ── -->
@@ -583,21 +595,18 @@
 
     <div class="hero-inner">
       <div class="hero-photo">
-        <img src="assets/profile.jpg" alt="Jan Keijzer" class="profile-photo">
+        <img src="/assets/profile.jpg" alt="Jan Keijzer" class="profile-photo">
       </div>
       <div class="hero-content">
-        <img src="assets/logo-horizontal.svg" alt="Imperial Automation" class="hero-logo">
-        <h1>Turn friction into flow</h1>
-        <p>
-          We help businesses spot the bottlenecks that slow them down — and build
-          smart, AI-driven automation that turns complexity into clarity.
-        </p>
+        <img src="/assets/logo-horizontal.svg" alt="Imperial Automation" class="hero-logo">
+        <h1>{{ i18n "heroTagline" }}</h1>
+        <p>{{ i18n "heroDescription" }}</p>
         <div class="hero-buttons">
           <a href="https://calendly.com/imperial-automation/introduction-call" class="btn-cta">
-            Book Free Strategy Call
+            {{ i18n "heroCtaPrimary" }}
           </a>
           <a href="https://jan-keijzer.nl" class="btn-secondary">
-            Get to know me
+            {{ i18n "heroCtaSecondary" }}
           </a>
         </div>
       </div>
@@ -606,7 +615,7 @@
 
   <!-- ── What I Do ── -->
   <section class="services" id="services">
-    <h2 class="section-title">What I do</h2>
+    <h2 class="section-title">{{ i18n "servicesTitle" }}</h2>
     <div class="services-grid">
 
       <div class="service-card">
@@ -615,11 +624,8 @@
           <path d="M14 24h20M14 30h12" stroke="#3B82F6" stroke-width="2" stroke-linecap="round"/>
           <circle cx="36" cy="18" r="3" fill="#FCD34D"/>
         </svg>
-        <h3>Process Automation</h3>
-        <p>
-          Identify the manual, repetitive tasks that drain your team's time.
-          Then replace them with reliable, automated workflows that run while you sleep.
-        </p>
+        <h3>{{ i18n "serviceProcessTitle" }}</h3>
+        <p>{{ i18n "serviceProcessDesc" }}</p>
       </div>
 
       <div class="service-card">
@@ -628,11 +634,8 @@
           <path d="M24 24v18M24 24L6 18M24 24l18-6" stroke="#3B82F6" stroke-width="1.5" opacity="0.6"/>
           <circle cx="24" cy="24" r="4" fill="#FCD34D"/>
         </svg>
-        <h3>AI Integration</h3>
-        <p>
-          Bring AI capabilities into your existing tools and workflows.
-          Not rip-and-replace — a pragmatic upgrade that delivers value from day one.
-        </p>
+        <h3>{{ i18n "serviceAiTitle" }}</h3>
+        <p>{{ i18n "serviceAiDesc" }}</p>
       </div>
 
       <div class="service-card">
@@ -642,11 +645,8 @@
           <circle cx="12" cy="36" r="3" fill="#FCD34D" opacity="0.7"/>
           <circle cx="36" cy="36" r="3" fill="#FCD34D" opacity="0.7"/>
         </svg>
-        <h3>Technical Leadership</h3>
-        <p>
-          Architecture, hands-on building, or leading your dev team to delivery.
-          Thirty years of engineering experience, applied to your challenge.
-        </p>
+        <h3>{{ i18n "serviceLeadershipTitle" }}</h3>
+        <p>{{ i18n "serviceLeadershipDesc" }}</p>
       </div>
 
     </div>
@@ -668,15 +668,15 @@
 
   <!-- ── Why Imperial Automation ── -->
   <section class="why" id="why">
-    <h2 class="section-title">Why Imperial Automation</h2>
+    <h2 class="section-title">{{ i18n "whyTitle" }}</h2>
     <div class="why-profile">
-      <img src="assets/profile.jpg" alt="Jan Keijzer" class="profile-photo">
+      <img src="/assets/profile.jpg" alt="Jan Keijzer" class="profile-photo">
     </div>
     <div class="why-content">
 
       <div class="why-item">
         <div class="why-highlight">30+</div>
-        <p>years across healthcare, aerospace, defence, and finance</p>
+        <p>{{ i18n "whyYears" }}</p>
       </div>
 
       <div class="why-item">
@@ -686,12 +686,12 @@
 
       <div class="why-item">
         <div class="why-highlight">Scale</div>
-        <p>Scaled teams from small startups to 40&#8209;50&nbsp;employees</p>
+        <p>{{ i18n "whyScale" }}</p>
       </div>
 
       <div class="why-item">
         <div class="why-highlight">PhD</div>
-        <p>Nuclear Reactor Physics, TU Delft</p>
+        <p>{{ i18n "whyPhd" }}</p>
       </div>
 
     </div>
@@ -700,16 +700,16 @@
   <!-- ── CTA Section ── -->
   <section class="cta-section">
     <div class="cta-profile">
-      <img src="assets/profile.jpg" alt="Jan Keijzer" class="profile-photo profile-photo--lg">
+      <img src="/assets/profile.jpg" alt="Jan Keijzer" class="profile-photo profile-photo--lg">
     </div>
-    <h2 class="section-title">Wondering what automation could do for your business?</h2>
-    <p>Let's have a conversation. No obligations, no sales pitch — just an honest look at where automation can make a difference.</p>
+    <h2 class="section-title">{{ i18n "ctaTitle" }}</h2>
+    <p>{{ i18n "ctaDescription" }}</p>
     <div class="cta-buttons">
       <a href="https://calendly.com/imperial-automation/introduction-call" class="btn-cta">
-        Book a Strategy Call
+        {{ i18n "ctaPrimary" }}
       </a>
       <a href="https://jan-keijzer.nl" class="btn-secondary" style="border-color: rgba(255,255,255,0.6); color: var(--white); background: rgba(255,255,255,0.1);">
-        Get to know me
+        {{ i18n "ctaSecondary" }}
       </a>
     </div>
 
@@ -725,8 +725,8 @@
   <footer>
     <div class="footer-inner">
       <div class="footer-brand">
-        <img src="assets/logo-white-horizontal.svg" alt="Imperial Automation" class="footer-logo">
-        <span>Turn friction into flow</span>
+        <img src="/assets/logo-white-horizontal.svg" alt="Imperial Automation" class="footer-logo">
+        <span>{{ i18n "footerTagline" }}</span>
       </div>
 
       <div class="footer-links">
@@ -735,13 +735,19 @@
         <a href="mailto:jan@imperial-automation.eu">jan@imperial-automation.eu</a>
       </div>
 
+      <div class="footer-links">
+        <strong style="color: rgba(255,255,255,0.9); font-size: 0.875rem;">{{ i18n "footerTools" }}</strong>
+        <a href="{{ "tools/downtime-calculator/" | relLangURL }}">{{ i18n "footerDowntimeCalc" }}</a>
+      </div>
+
       <div class="footer-legal">
         <p>KvK: 99596032</p>
+        <p>BTW: NL005401527B14</p>
       </div>
     </div>
 
     <div class="footer-bottom">
-      &copy; 2026 Imperial Automation. All rights reserved.
+      &copy; 2026 Imperial Automation. {{ i18n "footerCopyright" }}
     </div>
   </footer>
 

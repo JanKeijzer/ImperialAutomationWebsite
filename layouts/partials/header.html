@@ -1,0 +1,20 @@
+<header style="position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(255,255,255,0.95); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(30,58,138,0.08); padding: 0.75rem 2rem; display: flex; align-items: center; justify-content: space-between;">
+  <a href="{{ "/" | relLangURL }}">
+    <img src="/assets/logo-horizontal.svg" alt="Imperial Automation" style="height: 36px; width: auto;">
+  </a>
+  <div style="display: flex; align-items: center; gap: 1rem;">
+    {{- range .Translations }}
+    <a href="{{ .Permalink }}" style="font-size: 0.8rem; color: #1E3A8A; text-decoration: none; font-weight: 500;">{{ .Language.LanguageName }}</a>
+    {{- end }}
+    {{- if not .Translations }}
+      {{- if eq .Lang "en" }}
+    <a href="/nl/" style="font-size: 0.8rem; color: #1E3A8A; text-decoration: none; font-weight: 500;">Nederlands</a>
+      {{- else }}
+    <a href="/en/" style="font-size: 0.8rem; color: #1E3A8A; text-decoration: none; font-weight: 500;">English</a>
+      {{- end }}
+    {{- end }}
+    <a href="https://calendly.com/imperial-automation/introduction-call" style="display: inline-block; background: #FCD34D; color: #1E3A8A; font-weight: 700; font-size: 0.875rem; padding: 0.5rem 1.25rem; border-radius: 6px; text-decoration: none;">
+      {{ i18n "bookCall" }}
+    </a>
+  </div>
+</header>

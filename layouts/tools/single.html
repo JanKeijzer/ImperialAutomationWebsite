@@ -1,0 +1,370 @@
+{{ define "head" }}
+<style>
+  :root {
+    --navy: #1E3A8A;
+    --blue: #3B82F6;
+    --gold: #FCD34D;
+    --light-bg: #E0E7F1;
+    --white: #FFFFFF;
+    --text: #1E293B;
+    --text-light: #475569;
+    --mid-gray: #6B7280;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: system-ui, -apple-system, Arial, sans-serif;
+    color: var(--text);
+    background: var(--light-bg);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .calc-hero {
+    background: var(--navy);
+    padding: 3rem 2rem 2.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px 12px 0 0;
+  }
+
+  .calc-hero h1 {
+    font-family: 'Comfortaa', sans-serif;
+    font-size: clamp(1.5rem, 4vw, 2.25rem);
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+  }
+
+  .calc-hero p {
+    color: rgba(255,255,255,0.7);
+    font-size: 1rem;
+  }
+
+  .calc-hero-thread {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 60px;
+    pointer-events: none;
+  }
+
+  .calc-container {
+    max-width: 820px;
+    margin: 0 auto 3rem;
+    padding: 0 1rem;
+  }
+
+  .calc-card {
+    background: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    overflow: hidden;
+  }
+
+  .calc-section-title {
+    font-family: 'Comfortaa', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin: 0 0 1.25rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--gold);
+    display: inline-block;
+  }
+
+  .calc-inputs {
+    padding: 2rem 2rem 1.5rem;
+  }
+
+  .calc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 1.5rem;
+  }
+
+  .calc-field {
+    margin-bottom: 1rem;
+  }
+
+  .calc-field label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 0.25rem;
+  }
+
+  .calc-field .input-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .calc-field input {
+    width: 100%;
+    max-width: 200px;
+    padding: 0.625rem 0.875rem;
+    font-size: 1rem;
+    font-family: inherit;
+    border: 1.5px solid #d1d5db;
+    border-radius: 6px;
+    outline: none;
+    transition: border-color 0.15s;
+    background: var(--white);
+  }
+
+  .calc-field input:focus {
+    border-color: var(--blue);
+  }
+
+  .calc-field .unit {
+    font-size: 0.875rem;
+    color: var(--mid-gray);
+    white-space: nowrap;
+  }
+
+  .calc-field .hint {
+    font-size: 0.75rem;
+    color: var(--mid-gray);
+    margin-top: 0.125rem;
+  }
+
+  .calc-results {
+    padding: 1.5rem 2rem 2rem;
+    background: var(--light-bg);
+  }
+
+  .calc-result-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 0.625rem 0;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  .calc-result-row .label {
+    font-size: 0.875rem;
+    color: var(--text);
+  }
+
+  .calc-result-row .value {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--navy);
+    white-space: nowrap;
+  }
+
+  .calc-summary {
+    font-size: 0.875rem;
+    color: var(--mid-gray);
+    padding: 0.75rem 0;
+    border-bottom: none;
+  }
+
+  .calc-total {
+    background: var(--navy);
+    margin: 0.75rem -2rem 0;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  .calc-total .label {
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: var(--white);
+  }
+
+  .calc-total .value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--gold);
+    white-space: nowrap;
+  }
+
+  .calc-disclaimer {
+    padding: 1.25rem 2rem;
+    border-top: 1px solid #e5e7eb;
+  }
+
+  .calc-disclaimer p {
+    font-size: 0.8rem;
+    color: var(--mid-gray);
+    line-height: 1.6;
+  }
+
+  .calc-brand {
+    text-align: center;
+    padding: 1.5rem 0;
+    font-size: 0.75rem;
+    color: var(--mid-gray);
+  }
+
+  .calc-brand a {
+    color: var(--blue);
+    text-decoration: none;
+  }
+
+  @media (max-width: 640px) {
+    .calc-grid {
+      grid-template-columns: 1fr;
+    }
+    .calc-inputs {
+      padding: 1.5rem 1.25rem 1rem;
+    }
+    .calc-results {
+      padding: 1.25rem 1.25rem 1.5rem;
+    }
+    .calc-total {
+      margin: 0.75rem -1.25rem 0;
+      padding: 1rem 1.25rem;
+    }
+    .calc-disclaimer {
+      padding: 1rem 1.25rem;
+    }
+  }
+</style>
+{{ end }}
+
+{{ define "main" }}
+<main>
+  <div class="calc-container" style="margin-top: 5rem;">
+    <div class="calc-card">
+
+      <div class="calc-hero">
+        <h1>{{ .Title }}</h1>
+        <p>{{ i18n "calcIntro" }}</p>
+        <svg class="calc-hero-thread" viewBox="0 0 820 60" preserveAspectRatio="none" aria-hidden="true">
+          <defs>
+            <linearGradient id="calcThreadGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#1E3A8A"/>
+              <stop offset="50%" stop-color="#3B82F6"/>
+              <stop offset="100%" stop-color="#FCD34D"/>
+            </linearGradient>
+          </defs>
+          <path d="M 100 45 Q 300 20, 500 35 Q 650 48, 780 38"
+                stroke="url(#calcThreadGrad)" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.3"/>
+          <circle cx="780" cy="38" r="4" fill="#FCD34D" opacity="0.5"/>
+        </svg>
+      </div>
+
+      <div class="calc-inputs">
+        <h2 class="calc-section-title">{{ i18n "calcSectionInput" }}</h2>
+        <div class="calc-grid">
+
+          <div class="calc-field">
+            <label for="medewerkers">{{ i18n "calcEmployees" }}</label>
+            <div class="input-row">
+              <input type="number" id="medewerkers" min="0" step="1" value="6" class="calc-input">
+              <span class="unit">{{ i18n "calcEmployeesUnit" }}</span>
+            </div>
+            <div class="hint">{{ i18n "calcEmployeesHint" }}</div>
+          </div>
+
+          <div class="calc-field">
+            <label for="uurloon">{{ i18n "calcWage" }}</label>
+            <div class="input-row">
+              <input type="number" id="uurloon" min="0" step="any" value="45" class="calc-input">
+              <span class="unit">{{ i18n "calcWageUnit" }}</span>
+            </div>
+            <div class="hint">{{ i18n "calcWageHint" }}</div>
+          </div>
+
+          <div class="calc-field">
+            <label for="overhead">{{ i18n "calcOverhead" }}</label>
+            <div class="input-row">
+              <input type="number" id="overhead" min="0" step="any" value="40" class="calc-input">
+              <span class="unit">%</span>
+            </div>
+            <div class="hint">{{ i18n "calcOverheadHint" }}</div>
+          </div>
+
+          <div class="calc-field">
+            <label for="jaaromzet">{{ i18n "calcRevenue" }}</label>
+            <div class="input-row">
+              <input type="number" id="jaaromzet" min="0" step="any" value="8000000" class="calc-input">
+              <span class="unit">{{ i18n "calcRevenueUnit" }}</span>
+            </div>
+          </div>
+
+          <div class="calc-field">
+            <label for="productieuren">{{ i18n "calcProductiveHours" }}</label>
+            <div class="input-row">
+              <input type="number" id="productieuren" min="1" step="1" value="1800" class="calc-input">
+              <span class="unit">{{ i18n "calcProductiveHoursUnit" }}</span>
+            </div>
+            <div class="hint">{{ i18n "calcProductiveHoursHint" }}</div>
+          </div>
+
+          <div class="calc-field" style="visibility: hidden;"></div>
+
+          <div class="calc-field">
+            <label for="incidenten">{{ i18n "calcIncidents" }}</label>
+            <div class="input-row">
+              <input type="number" id="incidenten" min="0" step="1" value="10" class="calc-input">
+              <span class="unit">{{ i18n "calcIncidentsUnit" }}</span>
+            </div>
+          </div>
+
+          <div class="calc-field">
+            <label for="duur">{{ i18n "calcDuration" }}</label>
+            <div class="input-row">
+              <input type="number" id="duur" min="0" step="any" value="3" class="calc-input">
+              <span class="unit">{{ i18n "calcDurationUnit" }}</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div style="height: 1px; background: #e5e7eb; margin: 0 2rem;"></div>
+
+      <div class="calc-results">
+        <h2 class="calc-section-title">{{ i18n "calcSectionResult" }}</h2>
+
+        <div class="calc-result-row">
+          <span class="label">{{ i18n "calcResLabour" }}</span>
+          <span class="value" id="res-labour">-</span>
+        </div>
+        <div class="calc-result-row">
+          <span class="label">{{ i18n "calcResOverhead" }}</span>
+          <span class="value" id="res-overhead">-</span>
+        </div>
+        <div class="calc-result-row">
+          <span class="label">{{ i18n "calcResLostProduction" }}</span>
+          <span class="value" id="res-lost">-</span>
+        </div>
+        <div class="calc-result-row" style="border-bottom: 2px solid #d1d5db;">
+          <span class="label" style="font-weight: 600;">{{ i18n "calcResCostPerHour" }}</span>
+          <span class="value" id="res-per-hour">-</span>
+        </div>
+
+        <div class="calc-summary" id="res-summary"></div>
+
+        <div class="calc-total">
+          <span class="label">{{ i18n "calcResTotal" }}</span>
+          <span class="value" id="res-total">-</span>
+        </div>
+      </div>
+
+      <div class="calc-disclaimer">
+        <p>{{ i18n "calcDisclaimer" }}</p>
+      </div>
+
+    </div>
+
+    <div class="calc-brand">
+      <a href="{{ "/" | relLangURL }}">Imperial Automation</a> — imperial-automation.eu
+    </div>
+  </div>
+</main>
+
+<script src="/js/calculator.js"></script>
+{{ end }}

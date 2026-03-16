@@ -1,0 +1,166 @@
+[bookCall]
+other = "Afspraak inplannen"
+
+[calcTitle]
+other = "Stilstandcalculator"
+
+[calcSubtitle]
+other = "Wat kost ongeplande stilstand uw bedrijf per jaar?"
+
+[calcIntro]
+other = "Vul uw cijfers in en zie direct het resultaat. Geen registratie nodig."
+
+[calcSectionInput]
+other = "Uw gegevens"
+
+[calcSectionResult]
+other = "Resultaat"
+
+[calcEmployees]
+other = "Medewerkers die stilstaan bij een storing"
+
+[calcEmployeesUnit]
+other = "personen"
+
+[calcEmployeesHint]
+other = "Operators, planner, monteur"
+
+[calcWage]
+other = "Uurloon incl. werkgeverslasten"
+
+[calcWageUnit]
+other = "euro/uur"
+
+[calcWageHint]
+other = "Vuistregel: bruto uurloon x 1,3"
+
+[calcOverhead]
+other = "Overhead-opslag"
+
+[calcOverheadHint]
+other = "Huur, energie, afschrijving (30-50%)"
+
+[calcRevenue]
+other = "Jaaromzet"
+
+[calcRevenueUnit]
+other = "euro"
+
+[calcProductiveHours]
+other = "Productieve uren per jaar"
+
+[calcProductiveHoursUnit]
+other = "uur"
+
+[calcProductiveHoursHint]
+other = "Typisch 1.600 - 2.000 uur"
+
+[calcIncidents]
+other = "Ongeplande stilstandmomenten per jaar"
+
+[calcIncidentsUnit]
+other = "keer"
+
+[calcDuration]
+other = "Gemiddelde duur per moment"
+
+[calcDurationUnit]
+other = "uur"
+
+[calcResLabour]
+other = "Arbeidskosten per uur stilstand"
+
+[calcResOverhead]
+other = "Overhead per uur stilstand"
+
+[calcResLostProduction]
+other = "Gederfde productiewaarde per uur"
+
+[calcResCostPerHour]
+other = "Kosten per uur stilstand"
+
+[calcResIncidentsSummary]
+other = "incidenten x"
+
+[calcResHoursSuffix]
+other = "uur ="
+
+[calcResHoursDowntime]
+other = "uur stilstand/jaar"
+
+[calcResTotal]
+other = "Geschatte jaarlijkse kosten"
+
+[calcDisclaimer]
+other = "Dit is een conservatieve schatting. Indirecte kosten als verlate leveringen, klantverlies, overwerk en spoedbestellingen zijn niet meegerekend. De werkelijke kosten liggen vrijwel altijd hoger. Bron: TeamSense / Aberdeen Research."
+
+# Homepage
+[heroTagline]
+other = "Van knelpunt naar groei"
+
+[heroDescription]
+other = "Wij helpen bedrijven de knelpunten te vinden die hen vertragen. Daarna bouwen we automatisering die ze oplost."
+
+[heroCtaPrimary]
+other = "Gratis strategiegesprek"
+
+[heroCtaSecondary]
+other = "Meer over mij"
+
+[servicesTitle]
+other = "Wat ik doe"
+
+[serviceProcessTitle]
+other = "Procesautomatisering"
+
+[serviceProcessDesc]
+other = "De handmatige, repetitieve taken vinden die uw team tijd kosten. Vervangen door betrouwbare workflows die vanzelf draaien."
+
+[serviceAiTitle]
+other = "AI-integratie"
+
+[serviceAiDesc]
+other = "AI toevoegen aan uw bestaande tools en processen. Geen grote vervanging. Een pragmatische upgrade die direct waarde levert."
+
+[serviceLeadershipTitle]
+other = "Technisch leiderschap"
+
+[serviceLeadershipDesc]
+other = "Architectuur, hands-on bouwen, of uw dev-team naar oplevering leiden. Dertig jaar engineeringervaring, toegepast op uw uitdaging."
+
+[whyTitle]
+other = "Waarom Imperial Automation"
+
+[whyYears]
+other = "jaar ervaring in healthcare, aerospace, defensie en finance"
+
+[whyScale]
+other = "Teams opgeschaald van startup tot 40-50 medewerkers"
+
+[whyPhd]
+other = "Nucleaire Reactorfysica, TU Delft"
+
+[ctaTitle]
+other = "Benieuwd wat automatisering voor uw bedrijf kan betekenen?"
+
+[ctaDescription]
+other = "Geen verplichtingen, geen verkooppraatje. Gewoon een eerlijke blik op waar automatisering verschil maakt."
+
+[ctaPrimary]
+other = "Plan een strategiegesprek"
+
+[ctaSecondary]
+other = "Meer over mij"
+
+# Footer
+[footerTools]
+other = "Tools"
+
+[footerDowntimeCalc]
+other = "Stilstandcalculator"
+
+[footerTagline]
+other = "Van knelpunt naar groei"
+
+[footerCopyright]
+other = "Alle rechten voorbehouden."

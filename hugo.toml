@@ -1,0 +1,17 @@
+baseURL = "https://imperial-automation.eu/"
+title = "Imperial Automation"
+defaultContentLanguage = "en"
+defaultContentLanguageInSubdir = true
+
+[languages]
+  [languages.en]
+    weight = 1
+    languageCode = "en"
+    languageName = "English"
+    title = "Imperial Automation — Turn friction into flow"
+
+  [languages.nl]
+    weight = 2
+    languageCode = "nl"
+    languageName = "Nederlands"
+    title = "Imperial Automation — Van knelpunt naar groei"

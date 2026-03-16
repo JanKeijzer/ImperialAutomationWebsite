@@ -1,0 +1,166 @@
+[bookCall]
+other = "Book a Call"
+
+[calcTitle]
+other = "Downtime Calculator"
+
+[calcSubtitle]
+other = "What does unplanned downtime cost your business per year?"
+
+[calcIntro]
+other = "Fill in your numbers and see the result instantly. No registration required."
+
+[calcSectionInput]
+other = "Your data"
+
+[calcSectionResult]
+other = "Result"
+
+[calcEmployees]
+other = "Employees idle during downtime"
+
+[calcEmployeesUnit]
+other = "people"
+
+[calcEmployeesHint]
+other = "Operators, planner, mechanic"
+
+[calcWage]
+other = "Hourly cost incl. employer charges"
+
+[calcWageUnit]
+other = "euro/hour"
+
+[calcWageHint]
+other = "Rule of thumb: gross hourly rate x 1.3"
+
+[calcOverhead]
+other = "Overhead markup"
+
+[calcOverheadHint]
+other = "Rent, energy, depreciation (30-50%)"
+
+[calcRevenue]
+other = "Annual revenue"
+
+[calcRevenueUnit]
+other = "euro"
+
+[calcProductiveHours]
+other = "Productive hours per year"
+
+[calcProductiveHoursUnit]
+other = "hours"
+
+[calcProductiveHoursHint]
+other = "Typically 1,600 - 2,000 hours"
+
+[calcIncidents]
+other = "Unplanned downtime incidents per year"
+
+[calcIncidentsUnit]
+other = "times"
+
+[calcDuration]
+other = "Average duration per incident"
+
+[calcDurationUnit]
+other = "hours"
+
+[calcResLabour]
+other = "Labour cost per hour of downtime"
+
+[calcResOverhead]
+other = "Overhead per hour of downtime"
+
+[calcResLostProduction]
+other = "Lost production value per hour"
+
+[calcResCostPerHour]
+other = "Cost per hour of downtime"
+
+[calcResIncidentsSummary]
+other = "incidents x"
+
+[calcResHoursSuffix]
+other = "hours ="
+
+[calcResHoursDowntime]
+other = "hours of downtime/year"
+
+[calcResTotal]
+other = "Estimated annual cost"
+
+[calcDisclaimer]
+other = "This is a conservative estimate. Indirect costs such as late deliveries, customer loss, overtime and rush orders are not included. Actual costs are almost always higher. Source: TeamSense / Aberdeen Research."
+
+# Homepage
+[heroTagline]
+other = "Turn friction into flow"
+
+[heroDescription]
+other = "We help businesses find the bottlenecks that slow them down. Then we build automation that solves them."
+
+[heroCtaPrimary]
+other = "Book Free Strategy Call"
+
+[heroCtaSecondary]
+other = "Get to know me"
+
+[servicesTitle]
+other = "What I do"
+
+[serviceProcessTitle]
+other = "Process Automation"
+
+[serviceProcessDesc]
+other = "Find the manual, repetitive tasks that cost your team time. Replace them with reliable workflows that run on their own."
+
+[serviceAiTitle]
+other = "AI Integration"
+
+[serviceAiDesc]
+other = "Add AI to your existing tools and workflows. No rip-and-replace. A pragmatic upgrade that delivers value from day one."
+
+[serviceLeadershipTitle]
+other = "Technical Leadership"
+
+[serviceLeadershipDesc]
+other = "Architecture, hands-on building, or leading your dev team to delivery. Thirty years of engineering experience, applied to your challenge."
+
+[whyTitle]
+other = "Why Imperial Automation"
+
+[whyYears]
+other = "years across healthcare, aerospace, defence, and finance"
+
+[whyScale]
+other = "Scaled teams from small startups to 40-50 employees"
+
+[whyPhd]
+other = "Nuclear Reactor Physics, TU Delft"
+
+[ctaTitle]
+other = "Wondering what automation could do for your business?"
+
+[ctaDescription]
+other = "No obligations, no sales pitch. Just an honest look at where automation can make a difference."
+
+[ctaPrimary]
+other = "Book a Strategy Call"
+
+[ctaSecondary]
+other = "Get to know me"
+
+# Footer
+[footerTools]
+other = "Tools"
+
+[footerDowntimeCalc]
+other = "Downtime Calculator"
+
+[footerTagline]
+other = "Turn friction into flow"
+
+[footerCopyright]
+other = "All rights reserved."
